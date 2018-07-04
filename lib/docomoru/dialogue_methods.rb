@@ -1,11 +1,11 @@
 module Docomoru
   module DialogueMethods
-    PATH = "/dialogue/v1/dialogue"
+    PATH = '/naturalChatting/v1/dialogue'
 
     def create_dialogue(message, params = {}, headers = {})
       post(
         "#{PATH}?#{default_query_string}",
-        params.merge(utt: message),
+        params.merge(voiceText: message, language: 'ja-JP', botId: "Chatting", appId: ENV["DOCOMO_DIALOGUE_APP_ID"]),
         headers,
       )
     end
